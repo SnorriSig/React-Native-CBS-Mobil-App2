@@ -1,0 +1,11 @@
+npm install @react-navigation/drawer
+expo install react-native-gesture-handler react-native-reanimated
+
+add to babel.config.js
+plugins: ['react-native-reanimated/plugin'],
+
+expo start --clear
+
+or
+
+expo r -c
