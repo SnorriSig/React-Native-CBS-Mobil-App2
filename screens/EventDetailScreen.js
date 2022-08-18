@@ -1,5 +1,12 @@
 import { useEffect, useLayoutEffect, useState } from "react";
-import { Text, Image, View, StyleSheet, ScrollView, Button } from "react-native";
+import {
+  Text,
+  Image,
+  View,
+  StyleSheet,
+  ScrollView,
+  Button,
+} from "react-native";
 
 import IconButton from "../components/UI/IconButton";
 import List from "../components/EventDetail/List";
@@ -11,17 +18,12 @@ import { fetchEventData } from "../util/eventsApi.js";
 import AppLoading from "expo-app-loading";
 
 function EventDetailScreen({ route, navigation }) {
+  const [fetchedEvents, setFetchedEvents] = useState([]);
 
-   const [fetchedEvents, setFetchedEvents] = useState([]);
-
-   useEffect(() => {
+  useEffect(() => {
     async function getEvents() {
       const events = await fetchEventData("EVENTS");
       setFetchedEvents(events);
-
-      // const addEventsToStore = useSelector((state) => state.loadEvents.events)
-      // dispatch(addEvents({ events }));
-      // console.log(events);
     }
     getEvents();
   }, []);
@@ -31,8 +33,7 @@ function EventDetailScreen({ route, navigation }) {
   const dispatch = useDispatch();
 
   const eventId = route.params.eventId;
-  console.log("fetchedEvents ", fetchedEvents);
-  console.log("eventId" , eventId);
+
   const selectedEvent = fetchedEvents.find((event) => event.id === eventId);
 
   // Check if favoriteEventIds array includes this id
@@ -61,7 +62,7 @@ function EventDetailScreen({ route, navigation }) {
     });
   }, [navigation, changeFavoriteStatusHandler]);
 
- if (selectedEvent === undefined) {
+  if (selectedEvent === undefined) {
     return <AppLoading />;
   }
 

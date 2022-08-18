@@ -12,12 +12,11 @@ function FavoritesScreen() {
   useEffect(() => {
     async function getEvents() {
       const events = await fetchEventData("EVENTS");
-      console.log("events", events);
       setFetchedEvents(events);
     }
     getEvents();
   }, []);
-  
+
   const favoriteEvents = fetchedEvents.filter((event) =>
     favoriteEventIds.includes(event.id)
   );

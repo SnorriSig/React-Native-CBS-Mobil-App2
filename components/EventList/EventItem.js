@@ -10,14 +10,7 @@ import { useNavigation } from "@react-navigation/native"; // navigation hook
 
 import EventDetails from "../EventDetails";
 
-function EventItem({
-  id,
-  title,
-  imageUrl,
-  duration,
-  complexity,
-  date,
-}) {
+function EventItem({ id, title, imageUrl, duration, complexity, date }) {
   const navigation = useNavigation(); // same as navigation prop through screen component
 
   function selectEventItemHandler() {

@@ -21,7 +21,7 @@ const Drawer = createDrawerNavigator();
 
 function AuthStack() {
   return (
-    <Stack.Navigator          
+    <Stack.Navigator
       screenOptions={{
         headerStyle: { backgroundColor: Colors.primary500 },
         headerTitleStyle: { color: Colors.primary800 },
@@ -41,10 +41,7 @@ function AuthenticatedStack() {
         headerShown: false,
       }}
     >
-      <Stack.Screen
-        name="Drawer"
-        component={DrawerNavigator} 
-      />
+      <Stack.Screen name="Drawer" component={DrawerNavigator} />
     </Stack.Navigator>
   );
 }
@@ -52,9 +49,9 @@ function AuthenticatedStack() {
 function DrawerNavigator() {
   const authCtx = useContext(AuthContext);
   return (
-    <Drawer.Navigator 
-    // name="Favorites" component={FavoritesScreen} 
-       screenOptions={{
+    <Drawer.Navigator
+      // name="Favorites" component={FavoritesScreen}
+      screenOptions={{
         // title: "Favorites",
         // headerStyle: { backgroundColor: Colors.primary500 },
         headerTintColor: "#4967AA",
@@ -66,8 +63,8 @@ function DrawerNavigator() {
         drawerActiveTintColor: "#f7f7f3",
         drawerActiveBackgroundColor: "#4967AA",
         drawerInactiveTintColor: "#4967AA",
-       }}
-    >    
+      }}
+    >
       <Drawer.Screen
         name="Categories"
         component={CategoriesScreen}
@@ -84,7 +81,7 @@ function DrawerNavigator() {
               onPress={authCtx.logout}
             />
           ),
-        }}      
+        }}
       />
       <Drawer.Screen
         name="Favorites"
@@ -106,12 +103,12 @@ export default function Navigation() {
   return (
     <>
       <StatusBar style="dark" />
-      <NavigationContainer >
-        <Stack.Navigator 
+      <NavigationContainer>
+        <Stack.Navigator
           screenOptions={{
             title: "Event details",
             headerStyle: { backgroundColor: Colors.primary500 },
-            headerTintColor: '#4967AA',
+            headerTintColor: "#4967AA",
             contentStyle: { backgroundColor: Colors.primary100 },
           }}
         >
@@ -138,15 +135,12 @@ export default function Navigation() {
           )}
           {authCtx.isAuthenticated && (
             <Stack.Screen
-              name="EventOverview" 
-              component={EventsOverviewScreen} 
+              name="EventOverview"
+              component={EventsOverviewScreen}
             />
           )}
           {authCtx.isAuthenticated && (
-            <Stack.Screen
-              name="EventDetail"
-              component={EventDetailScreen}
-            />
+            <Stack.Screen name="EventDetail" component={EventDetailScreen} />
           )}
         </Stack.Navigator>
       </NavigationContainer>

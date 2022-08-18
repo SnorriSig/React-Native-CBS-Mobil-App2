@@ -11,7 +11,7 @@ const eventsSlice = createSlice({
     },
   },
 });
-  
-  // Action creators are generated for each case reducer function
-  export const addEvents = eventsSlice.actions.addEvents;
-  export default eventsSlice.reducer;
+
+// Action creators are generated for each case reducer function
+export const addEvents = eventsSlice.actions.addEvents;
+export default eventsSlice.reducer;

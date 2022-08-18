@@ -5,12 +5,10 @@ export async function fetchEventData(mode) {
   try {
     const eventsCol = collection(db, mode);
     const eventSnapshot = await getDocs(eventsCol);
-    const eventList = [] 
+    const eventList = [];
     eventSnapshot.forEach((doc) => {
-      eventList.push(doc.data())
-      })
-
-    console.log("eventList", eventList);
+      eventList.push(doc.data());
+    });
     return eventList;
   } catch (e) {
     console.log(e);

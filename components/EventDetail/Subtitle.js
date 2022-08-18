@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet } from "react-native";
 
-function Subtitle({children}) {
+function Subtitle({ children }) {
   return (
     <View style={styles.subtitleContainer}>
       <Text style={styles.subtitle}>{children}</Text>
@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     color: "black",
     fontSize: 18,
     fontWeight: "bold",
-    textAlign: "center"
+    textAlign: "center",
   },
   subtitleContainer: {
     padding: 6,
@@ -23,5 +23,5 @@ const styles = StyleSheet.create({
     marginVertical: 4,
     borderBottomColor: "#666",
     borderBottomWidth: 2,
-  }
+  },
 });

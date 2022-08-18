@@ -5,17 +5,17 @@ import { useEffect, useState } from "react";
 import { fetchEventData } from "../util/eventsApi.js";
 
 function CategoriesScreen({ navigation }) {
-const [fetchedCategories, setFetchedCategories] = useState([])
+  const [fetchedCategories, setFetchedCategories] = useState([]);
 
   useEffect(() => {
     async function getCategories() {
       const categories = await fetchEventData("CATEGORIES");
-      setFetchedCategories(categories)
-  }
+      setFetchedCategories(categories);
+    }
 
-  getCategories();
-}, []);
-    
+    getCategories();
+  }, []);
+
   function renderCategoryItem(itemData) {
     function pressHandler() {
       navigation.navigate("EventOverview", {
