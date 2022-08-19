@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import { StatusBar } from "expo-status-bar";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -12,7 +13,7 @@ import FavoritesScreen from "../screens/FavoritesScreen";
 import LoginScreen from "../screens/authScreens/LoginScreen";
 import SignupScreen from "../screens/authScreens/SignupScreen";
 import { Colors } from "../constants/styles";
-import { useContext } from "react";
+
 import { AuthContext } from "../store/auth-context";
 import IconButton from "./UI/IconButton";
 
@@ -50,15 +51,10 @@ function DrawerNavigator() {
   const authCtx = useContext(AuthContext);
   return (
     <Drawer.Navigator
-      // name="Favorites" component={FavoritesScreen}
       screenOptions={{
-        // title: "Favorites",
-        // headerStyle: { backgroundColor: Colors.primary500 },
+        title: "Favorites",
         headerTintColor: "#4967AA",
         sceneContainerStyle: { backgroundColor: Colors.primary100 },
-        // drawerIcon: ({ color, size }) => (
-        //   <Ionicons name="star" color={color} size={size} />
-        // ),
         drawerContentStyle: { backgroundColor: Colors.primary100 },
         drawerActiveTintColor: "#f7f7f3",
         drawerActiveBackgroundColor: "#4967AA",

@@ -5,7 +5,7 @@ import { store } from "./store/redux/store";
 import Navigation from "./components/Navigation";
 import AuthContextProvider, { AuthContext } from "./store/auth-context";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import AppLoading from "expo-app-loading";
+import LoadingOverlay from "./components/UI/LoadingOverlay";
 
 function Root() {
   const [isTryingLogin, setIsTryingLogin] = useState(true);
@@ -27,7 +27,7 @@ function Root() {
   }, []);
 
   if (isTryingLogin) {
-    return <AppLoading />;
+    return <LoadingOverlay message="Loading..." />;
   }
 
   return <Navigation />;

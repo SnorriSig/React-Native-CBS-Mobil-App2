@@ -1,12 +1,5 @@
 import { useEffect, useLayoutEffect, useState } from "react";
-import {
-  Text,
-  Image,
-  View,
-  StyleSheet,
-  ScrollView,
-  Button,
-} from "react-native";
+import { Text, Image, View, StyleSheet, ScrollView, } from "react-native";
 
 import IconButton from "../components/UI/IconButton";
 import List from "../components/EventDetail/List";
@@ -15,7 +8,7 @@ import EventDetails from "../components/EventDetails";
 import { addFavorite, removeFavorite } from "../store/redux/favorites";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchEventData } from "../util/eventsApi.js";
-import AppLoading from "expo-app-loading";
+import LoadingOverlay from "../components/UI/LoadingOverlay";
 
 function EventDetailScreen({ route, navigation }) {
   const [fetchedEvents, setFetchedEvents] = useState([]);
@@ -63,12 +56,11 @@ function EventDetailScreen({ route, navigation }) {
   }, [navigation, changeFavoriteStatusHandler]);
 
   if (selectedEvent === undefined) {
-    return <AppLoading />;
+    return <LoadingOverlay message="Loading..." />;
   }
 
   return (
     <ScrollView style={styles.rootContainer}>
-      {/* <Button title="Learn More" onPress={getFromDB}>somebutton</Button> */}
       <Image style={styles.image} source={{ uri: selectedEvent.imageUrl }} />
       <Text style={styles.title}>{selectedEvent.title}</Text>
       <EventDetails
